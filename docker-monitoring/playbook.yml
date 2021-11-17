@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  become: true
+  roles:
+    - ansible-node_exporter
+    - ansible-role-pip
+    - ansible-role-docker
+    - ansible-promgraf
