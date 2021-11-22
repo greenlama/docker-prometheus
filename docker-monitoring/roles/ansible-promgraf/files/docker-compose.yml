@@ -7,6 +7,8 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   grafana:
     image: grafana/grafana
@@ -17,8 +19,6 @@ services:
       - ./grafana/dashboards:/etc/grafana/provisioning/dashboards/dashboards
     ports:
       - 3000:3000
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
 
 networks:
   default:
